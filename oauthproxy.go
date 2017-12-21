@@ -321,6 +321,8 @@ func (p *OAuthProxy) LoadCookiedSession(req *http.Request) (*providers.SessionSt
 
 	session, err := p.provider.SessionFromCookie(val, p.CookieCipher)
 	if err != nil {
+        log.Printf("Debug ##: raw cookie: %s", c.Value)
+        log.Printf("Debug ##: cookie value: %s", val)
 		return nil, age, err
 	}
 
